@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Erowid Roulette</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            background-color: black;
+            color: #CCCCCC;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        #loading {
+            font-size: 20px;
+        }
+        a {
+            color: #CCCCCC;
+        }
+        h1 {
+            margin-bottom: 0;
+        }
+    </style>
+    <script src="./experiences.js"></script>
+</head>
+<body>
+    <br/>
+    <br/>
+    <h1>Erowid Roulette</h1>
+    <p><i>Originally <a href="https://nucular.github.io/stuff/erowid/">Nucular</a>, resurrected by <a href="https://wttdotm.com/">WTTDOTM</a></i></p>
+    <p>Erowid roulette is a tool that links you to a random <a href="https://erowid.org/experiences/exp_front.php">Erowid experience.</a></p>
+    <div id="loading">Loading...</div>
+    <div id="button" style="display: none; text-align: center;">
+        <p>🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀</p>
+        <span>🌀🌀🌀🌀🌀🌀🌀🌀🌀 <button style="display: inline-block;" onclick="getRandomExperience()">Spin the wheel</button> 🌀🌀🌀🌀🌀🌀🌀🌀🌀</span>
+        <p>🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀</p>
+
+    </div>
+    <br/>
+    <br/>
+    <p>For educational and archival purposes only, not affiliated with <a href="https://erowid.org/">Erowid</a> in any way.</p>
+    <script>
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('button').style.display = 'block';
+    const getRandomExperience = (drug) => {
+            if (!drug) {
+                let experienceDrug = allExperiences[Math.floor(Math.random() * allExperiences.length)];
+                let url = experienceDrug.link;
+                window.open(url);
+            }
+        }
+    </script>
+</body>
+</html>
